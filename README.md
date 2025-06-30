@@ -4,7 +4,7 @@
 
 ---
 ##   Estado del proyecto
-* Proyecto terminado, usable y con posibles futuras versiones
+* Proyecto en desarrollo, usable y con futuras versiones
 ## 🎮 Características
 
 * Movimiento con awsd o en su defecto con las flechas del teclado.
