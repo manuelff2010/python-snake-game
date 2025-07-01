@@ -36,16 +36,18 @@ class game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.run = False
-            self.keys_control()
             self.logica.update()
+            self.keys_control()
             self.pantalla.fill(self.background_color)
             self.builder()
             pygame.display.update()
     def builder(self):
         self.graficos.contorno.renderizado()
         self.graficos.render_serpiente((255,0,0),self.logica.cola)
+        self.graficos.render_manzana(self.logica.manzana)
         for i in self.graficos.cuadricula:
             i.renderizado()
         for i in self.graficos.serpiente_render:
             i.renderizado()
+        self.graficos.manzana_render.renderizado()
 game()

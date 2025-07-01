@@ -31,11 +31,9 @@ class graficos():
                 self.x_posicion += rango_x*self.tamaño_celda[0]
                 self.cuadricula.append(objects.cuadrados((self.x_posicion,self.y_posicion),self.tamaño_celda,color_celdas[color],self.pantalla))
                 self.x_posicion = self.separador
-                verificacion = self.limits%2 == 0
             self.y_posicion = self.separador
     def render_serpiente(self,color,cola):
         self.serpiente_render = []
-        print(cola)
         for i in cola:
             self.x_posicion += self.tamaño_celda[0] * i[0]
             self.y_posicion += self.tamaño_celda[1] * i[1]
@@ -47,4 +45,15 @@ class graficos():
             ))
             self.x_posicion = self.separador
             self.y_posicion = self.separador
+    def render_manzana(self,cordenada):
+        self.x_posicion += self.tamaño_celda[0]*cordenada[0]
+        self.y_posicion += self.tamaño_celda[1]*cordenada[1]
+        self.manzana_render= objects.cuadrados(
+            (self.x_posicion,self.y_posicion),
+            self.tamaño_celda,
+            (0,0,255),
+            self.pantalla
+        )
+        self.x_posicion = self.separador
+        self.y_posicion = self.separador
             
