@@ -1,3 +1,4 @@
+import config 
 import pygame
 import game_objects as objects
 class graficos():
@@ -6,11 +7,12 @@ class graficos():
         self.separador= separador
         self.pantalla= pantalla
         self.limits = limites
-    def matriz_builder(self,color_celdas):
+        self.configuracion = config.player_config()
+    def matriz_builder(self):
         self.contorno = objects.cuadrados(
             (self.separador-1,self.separador-1),
             (self.tamaño_ventana[0]-(self.separador+1)*2,self.tamaño_ventana[1]-(self.separador+1)*2),
-            (0,0,0),
+            self.configuracion.color_contorno,
             self.pantalla
             )
         self.cuadricula = []
@@ -29,10 +31,15 @@ class graficos():
                 else:
                     color = 1
                 self.x_posicion += rango_x*self.tamaño_celda[0]
-                self.cuadricula.append(objects.cuadrados((self.x_posicion,self.y_posicion),self.tamaño_celda,color_celdas[color],self.pantalla))
+                self.cuadricula.append(objects.cuadrados(
+                    (self.x_posicion,self.y_posicion),
+                    self.tamaño_celda,
+                    self.configuracion.color_tablero[color],
+                    self.pantalla
+                    ))
                 self.x_posicion = self.separador
             self.y_posicion = self.separador
-    def render_serpiente(self,color,cola):
+    def render_serpiente(self,cola):
         self.serpiente_render = []
         for i in cola:
             self.x_posicion += self.tamaño_celda[0] * i[0]
@@ -40,7 +47,7 @@ class graficos():
             self.serpiente_render.append(objects.cuadrados(
                 (self.x_posicion,self.y_posicion),
                 self.tamaño_celda,
-                color,
+                self.configuracion.color_serpiente,
                 self.pantalla
             ))
             self.x_posicion = self.separador
@@ -51,7 +58,7 @@ class graficos():
         self.manzana_render= objects.cuadrados(
             (self.x_posicion,self.y_posicion),
             self.tamaño_celda,
-            (0,0,255),
+            self.configuracion.color_manzana,
             self.pantalla
         )
         self.x_posicion = self.separador
