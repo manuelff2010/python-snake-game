@@ -6,7 +6,7 @@ class game_logic():
         self.tamaño_serpiente = 4
         self.limits = 16
         self.direccion = (0,0)
-        self.cola = [(0,0)]
+        self.cola = [(int(self.limits/2),int(self.limits/2))]
         self.manzana = None
     def verificacion_cordenadas(self, a):
         if not a <= self.limits:
@@ -21,9 +21,11 @@ class game_logic():
     def movimiento(self):
         if self.direccion != (0,0):
             self.nueva_cordenada = (self.cola[0][0] + self.direccion[0],self.cola[0][1] + self.direccion[1])
+            print(self.cola)
             verificacion_cordenada = (self.verificacion_cordenadas(self.nueva_cordenada[0]),self.verificacion_cordenadas(self.nueva_cordenada[1]))
             if not(verificacion_cordenada[0] == None and verificacion_cordenada[1] == None):
                 if verificacion_cordenada[0] == None:
+                    print(self.cola)
                     if verificacion_cordenada[1]:
                         self.nueva_cordenada = (self.nueva_cordenada[0],0)
                     else:
@@ -59,7 +61,7 @@ class game_logic():
     def new_game(self):
         self.tamaño_serpiente = 4
         self.direccion = (0,0)
-        self.cola = [(0,0)]
+        self.cola = [(int(self.limits/2),int(self.limits/2))]
         self.manzana = None
 
 basic_data = {
@@ -79,7 +81,7 @@ basic_data = {
 }
 class player_config():
     def __init__(self):
-        self.configuracion = "src/datos.json"
+        self.configuracion = "python-snake-game/src/datos.json"
         try:
             with open(self.configuracion,"r") as data:
                 self.datos = json.load(data)

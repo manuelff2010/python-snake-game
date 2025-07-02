@@ -4,4 +4,6 @@
 /lib
 /lib64
 /pyvenv.cfg
-/game/src/__pycache__
+/python-snake-game/src/__pycache__
+/python-snake-game/src/datos.json
+/src

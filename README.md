@@ -1,4 +1,4 @@
-🌐 **Languages:** [Español](README.md) | [English](README.en.md) | [Français](README.fr.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [Deutsch](README.de.md)
+🌐 **Languages:** [Español](README.md) | [English](traducciones/README.en.md) | [Français](traducciones/README.fr.md) | [Português](traducciones/README.pt.md) | [Русский](traducciones/README.ru.md) | [Deutsch](traducciones/README.de.md)
 ---
 # Snake python game
 
@@ -18,10 +18,15 @@
 1.  Asegúrate de tener el interprete de Python instalado.
 2.  Asegurate de tener instalado la libreria pygame con `pip list` o `pip3 list`.
 3.  En el caso de que no tengas pygame ejecutar `pip install pygame` o `pip3 install pygame` 
-3.  Clona este repositorio: `git clone https://github.com/manuelff2010/python-snake-game.git` o descargar el .zip y descomprimirlo
-4.  Abre una terminal, En el caso de windows con las teclas Windows+r, escribir cmd y darle enter
-5.  Navega a la carpeta del proyecto: `cd python-snake-game`
-6.  Ejecuta el juego: `python main.py`
+4.  descarga los archivos del juego: \
+    para descargar unicamente los archivos del juego descarga el siguiente .zip y descomprimelo:
+    https://downgit.github.io/#/home?url=https://github.com/manuelff2010/python-snake-game/tree/main/python-snake-game/ 
+    
+    descargar todo el repositorio(mas pesado): \
+    `git clone https://github.com/manuelff2010/python-snake-game.git` 
+5.  Abre una terminal(para windows `windows+r`, escribir `cmd` y pulsar enter)
+6.  Navega a la carpeta del proyecto: `cd python-snake-game`
+7.  Ejecuta el juego: `python main.py`
 
 ## 🛠️ Tecnologías utilizadas
 * **Python**
@@ -29,10 +34,12 @@
 ---
 ## 📸 Demo
 
-![Captura de pantalla del juego](ruta/a/tu/imagen-snake.png)
-
+![Captura de pantalla del juego](traducciones/imagenes/vista_juego.png)
+![Captura de pantalla del juego](traducciones/imagenes/vista_escritorio.png)
+![Captura de pantalla del juego](traducciones/imagenes/vista_menu_1.png)
+![Captura de pantalla del juego](traducciones/imagenes/vista_menu_2.png)
+![Captura de pantalla del juego](traducciones/imagenes/vista_menu_perdida.png)
 ---
-
 ## 💡 Próximos pasos
 
 * Añadir configuraciones.
@@ -41,6 +48,5 @@
 ---
 
 ## 📄 Licencia
-🌐 **Languages:** [Español](README.md) | [English](README.en.md) | [Français](README.fr.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [Deutsch](README.de.md)
----
+
 Este proyecto está bajo la Licencia GPL-3.0.
