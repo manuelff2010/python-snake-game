@@ -8,10 +8,10 @@ basic_data = {
         "serpiente": (255,0,0),
         "manzana": (0,0,255),
         "fondo": (50,100,50),
-        "contorno": (0,0,0)
+        "contorno": (0,0,0),
+        "titulo_lista": [(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(75,0,130),(76,40,130)]
     },
     "juego": {
-        
     }
 }
 class player_config():
@@ -20,10 +20,11 @@ class player_config():
         try:
             with open(self.configuracion,"r") as data:
                 self.datos = json.load(data)
+                print(self.datos)
                 self.creacion_variables()
         except:
             self.escritura(basic_data)
-            self.creacion_variables()
+            player_config()
     def escritura(self,datos):
         with open(self.configuracion,"w") as data:
             json.dump(datos,data,indent=4)
@@ -33,3 +34,4 @@ class player_config():
         self.color_tablero = self.datos["colores"]["tablero"]
         self.color_fondo = self.datos["colores"]["fondo"]
         self.color_contorno = self.datos["colores"]["contorno"]
+        self.color_lista_titulo = self.datos["colores"]["titulo_lista"]

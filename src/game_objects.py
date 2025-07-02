@@ -21,7 +21,7 @@ class titulos(object):
         self.texto = texto
         self.font = font
     def renderizado(self):
-        self.fuente = pygame.font.SysFont(font,self.tamaño)
+        self.fuente = pygame.font.SysFont(self.font,self.tamaño)
         self.title = self.fuente.render(self.texto,True,self.color)
     def dibujo(self):
         self.pantalla.blit(self.title,self.posicion)
@@ -36,7 +36,6 @@ class botones(object):
         if self.caja_boton.collidepoint(pygame.mouse.get_pos()):
             self.estado=1
             if evento.type == pygame.MOUSEBUTTONDOWN:
-                print("pepito")
                 self.estado=2
         else:
             self.estado=0

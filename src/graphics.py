@@ -1,18 +1,22 @@
 import config 
 import pygame
 import game_objects as objects
+configuracion = config.player_config()
+try:
+    configuracion.color_contorno
+except:
+    configuracion = config.player_config()
 class graficos():
     def __init__(self,tamaño_ventana,separador,pantalla,limites):
         self.tamaño_ventana= tamaño_ventana
         self.separador= separador
         self.pantalla= pantalla
         self.limits = limites
-        self.configuracion = config.player_config()
     def matriz_builder(self):
         self.contorno = objects.cuadrados(
             (self.separador-1,self.separador-1),
             (self.tamaño_ventana[0]-(self.separador+1)*2,self.tamaño_ventana[1]-(self.separador+1)*2),
-            self.configuracion.color_contorno,
+            configuracion.color_contorno,
             self.pantalla
             )
         self.cuadricula = []
@@ -34,7 +38,7 @@ class graficos():
                 self.cuadricula.append(objects.cuadrados(
                     (self.x_posicion,self.y_posicion),
                     self.tamaño_celda,
-                    self.configuracion.color_tablero[color],
+                    configuracion.color_tablero[color],
                     self.pantalla
                     ))
                 self.x_posicion = self.separador
@@ -47,7 +51,7 @@ class graficos():
             self.serpiente_render.append(objects.cuadrados(
                 (self.x_posicion,self.y_posicion),
                 self.tamaño_celda,
-                self.configuracion.color_serpiente,
+                configuracion.color_serpiente,
                 self.pantalla
             ))
             self.x_posicion = self.separador
@@ -58,9 +62,51 @@ class graficos():
         self.manzana_render= objects.cuadrados(
             (self.x_posicion,self.y_posicion),
             self.tamaño_celda,
-            self.configuracion.color_manzana,
+            configuracion.color_manzana,
             self.pantalla
         )
         self.x_posicion = self.separador
         self.y_posicion = self.separador
-            
+
+class graficos_menus():
+    def __init__(self,pantalla):
+        self.pantalla = pantalla
+        self.color = 0
+        botones = ["jugar","opciones","salir"]
+        self.menu_botones = []
+        boton_initial_position = 125
+        for i in range(len(botones)):
+            self.menu_botones.append(objects.botones(
+                (125,boton_initial_position+i*75),
+                (250,50),
+                ((0,0,255),(0,255,0),(255,0,0)),
+                (botones[i],(255,255,255)),
+                ("arial",12),
+                self.pantalla
+            ))
+    def title(self,rainbow):
+        if rainbow:
+            if self.color > len(configuracion.color_lista_titulo)-2:
+                self.color = 0
+            else:
+                self.color += 1
+            color = configuracion.color_lista_titulo[self.color]
+        else:
+            color = (255,255,255)
+        self.menu_titulo = objects.titulos(
+            "Snake game with python",
+            40,color,
+            "arial",
+            (35,50),
+            self.pantalla
+        )
+    def perdida_menu(self):
+        self.menu_titulo = objects.titulos(
+            "Has perdido",
+            20,
+            (255,255,255),
+            "arial",
+            (250,250),
+            self.pantalla
+        )
+        self.fondo = objects.cuadrados((150,150),(200,200),(50,200,50),self.pantalla)
