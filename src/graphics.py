@@ -15,7 +15,7 @@ class graficos():
     def matriz_builder(self):
         self.contorno = objects.cuadrados(
             (self.separador-1,self.separador-1),
-            (self.tamaño_ventana[0]-(self.separador+1)*2,self.tamaño_ventana[1]-(self.separador+1)*2),
+            (self.tamaño_ventana[0]-(self.separador)*2,self.tamaño_ventana[1]-(self.separador)*2),
             configuracion.color_contorno,
             self.pantalla
             )
@@ -23,9 +23,10 @@ class graficos():
         self.tamaño_celda = (
             int((self.tamaño_ventana[0]-(self.separador*2))/(self.limits+1)),
             int((self.tamaño_ventana[1]-(self.separador*2))/(self.limits+1))
-            ) 
-        self.y_posicion = self.separador
-        self.x_posicion = self.separador
+            )
+        self.inicio = (self.tamaño_ventana[0]- self.tamaño_celda[0] * (self.limits+1))/2
+        self.y_posicion = self.inicio
+        self.x_posicion = self.inicio
         color = 1
         for rango_y in range(self.limits+1):
             self.y_posicion += rango_y*self.tamaño_celda[1]
@@ -41,8 +42,8 @@ class graficos():
                     configuracion.color_tablero[color],
                     self.pantalla
                     ))
-                self.x_posicion = self.separador
-            self.y_posicion = self.separador
+                self.x_posicion = self.inicio
+            self.y_posicion = self.inicio
     def render_serpiente(self,cola):
         self.serpiente_render = []
         for i in cola:
@@ -54,9 +55,9 @@ class graficos():
                 configuracion.color_serpiente,
                 self.pantalla
             ))
-            self.x_posicion = self.separador
-            self.y_posicion = self.separador
-    def render_manzana(self,cordenada):
+            self.x_posicion = self.inicio
+            self.y_posicion = self.inicio
+    def render_manzana(self,cordenada,numero):
         self.x_posicion += self.tamaño_celda[0]*cordenada[0]
         self.y_posicion += self.tamaño_celda[1]*cordenada[1]
         self.manzana_render= objects.cuadrados(
@@ -65,8 +66,9 @@ class graficos():
             configuracion.color_manzana,
             self.pantalla
         )
-        self.x_posicion = self.separador
-        self.y_posicion = self.separador
+        self.x_posicion = self.inicio
+        self.y_posicion = self.inicio
+        self.puntaje = objects.titulos(f"puntos: {numero}",15,(255,255,255),"arial",(10,10),self.pantalla)
 
 class graficos_menus():
     def __init__(self,pantalla):
@@ -101,12 +103,24 @@ class graficos_menus():
             self.pantalla
         )
     def perdida_menu(self):
-        self.menu_titulo = objects.titulos(
+        botones = ["volver a jugar","ir al menu principal"]
+        self.menu_botones_perdida = []
+        boton_initial_position = 250
+        for i in range(len(botones)):
+            self.menu_botones_perdida.append(objects.botones(
+                (125,boton_initial_position+i*75),
+                (250,50),
+                ((0,0,255),(0,255,0),(255,0,0)),
+                (botones[i],(255,255,255)),
+                ("arial",12),
+                self.pantalla
+            ))
+        self.menu_titulo_perdida = objects.titulos(
             "Has perdido",
-            20,
-            (255,255,255),
+            35,
+            (255,255,0),
             "arial",
-            (250,250),
+            (150,150),
             self.pantalla
         )
-        self.fondo = objects.cuadrados((150,150),(200,200),(50,200,50),self.pantalla)
+        self.fondo = objects.cuadrados((100,100),(300,300),(50,200,50),self.pantalla)

@@ -39,9 +39,9 @@ class botones(object):
                 self.estado=2
         else:
             self.estado=0
-    def draw_button(self):
+    def draw_button(self,width = 0, border_radius = -1):
         self.fuente = pygame.font.SysFont(self.font[0],self.font[1])
-        pygame.draw.rect(self.pantalla,self.color[self.estado],self.caja_boton)
+        pygame.draw.rect(self.pantalla,self.color[self.estado],self.caja_boton,border_radius,width)
         button_title = self.fuente.render(self.texto[0], True, self.texto[1][self.estado])
         box_title = button_title.get_rect(center = self.caja_boton.center)
         self.pantalla.blit(button_title,box_title)
