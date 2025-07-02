@@ -20,7 +20,7 @@
 3. Если у вас нет pygame, выполните `pip install pygame` или `pip3 install pygame`.
 4. Скачайте файлы игры:
    Чтобы скачать только файлы игры, скачайте и распакуйте следующий .zip:
-   https://downgit.github.io/#/home?url=https://github.com/manuelff2010/python-snake-game/tree/main/python-snake-game/
+   https://downgit.github.io/#/home?url=https://github.com/manuelff2010/python-snake-game/tree/main/python-snake-game
 
    Скачать весь репозиторий (более тяжелый):
    `git clone https://github.com/manuelff2010/python-snake-game.git`

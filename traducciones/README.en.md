@@ -20,7 +20,7 @@ Recreation of the famous Snake video game using Python and Pygame!
 3. If you don't have pygame, run `pip install pygame` or `pip3 install pygame`.
 4. Download the game files:
    To download only the game files, download and unzip the following .zip:
-   https://downgit.github.io/#/home?url=https://github.com/manuelff2010/python-snake-game/tree/main/python-snake-game/
+   https://downgit.github.io/#/home?url=https://github.com/manuelff2010/python-snake-game/tree/main/python-snake-game
 
    Download the entire repository (heavier):
    `git clone https://github.com/manuelff2010/python-snake-game.git`
