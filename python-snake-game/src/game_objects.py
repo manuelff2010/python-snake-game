@@ -26,9 +26,6 @@ class titulos(object):
     def dibujo(self):
         self.pantalla.blit(self.title,self.posicion)
 class botones(object):
-    """
-    prueba
-    """
     def __init__(self,posicion,tamaño,colores_boton,texto_y_color,font,pantalla):
         super().__init__(posicion,tamaño,colores_boton,pantalla)
         self.estado = 0

@@ -25,7 +25,7 @@ Recriação do famoso videogame Snake usando Python e Pygame!
    Baixar todo o repositório (mais pesado):
    `git clone https://github.com/manuelff2010/python-snake-game.git`
 5. Abra um terminal (para Windows `windows+r`, digite `cmd` e pressione Enter).
-6. Navegue até a pasta do projeto: `cd python-snake-game`
+6. Navegue até a pasta do projeto: `cd python-snake-game/src`
 7. Execute o jogo: `python main.py`
 
 ## 🛠️ Tecnologias utilizadas

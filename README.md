@@ -25,7 +25,7 @@
     descargar todo el repositorio(mas pesado): \
     `git clone https://github.com/manuelff2010/python-snake-game.git` 
 5.  Abre una terminal(para windows `windows+r`, escribir `cmd` y pulsar enter)
-6.  Navega a la carpeta del proyecto: `cd python-snake-game`
+6.  Navega a la carpeta del proyecto: `cd python-snake-game/src`
 7.  Ejecuta el juego: `python main.py`
 
 ## 🛠️ Tecnologías utilizadas
